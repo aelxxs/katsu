@@ -1,0 +1,9 @@
+{
+	"name": "katsu",
+	"scripts": {
+		"deploy": ""
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^3.11.0"
+	}
+}
