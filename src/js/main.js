@@ -74,7 +74,11 @@ async function onPop() {
 
 		app.state.code = doc;
 
-		app.state.html = (language ? hljs.highlight(doc, { language }) : hljs.highlightAuto(doc)).value;
+		try {
+			app.state.html = (language ? hljs.highlight(doc, { language }) : hljs.highlightAuto(doc)).value;
+		} catch {
+			app.state.html = hljs.highlightAuto(doc).value;
+		}
 	} catch {
 		window.history.pushState(null, "", `/`);
 		app.state.make();
