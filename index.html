@@ -5,11 +5,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Katsu 勝つ</title>
-		<script src="./js/lucia.min.js"></script>
-		<script src="./js/highlight.min.js"></script>
-		<link rel="stylesheet" href="./css/resets.css" />
-		<link rel="stylesheet" href="./css/styles.css" />
-		<link rel="stylesheet" href="./css/themes.css" />
+		<script src="./src/js/lucia.min.js"></script>
+		<script src="./src/js/highlight.min.js"></script>
+		<link rel="stylesheet" href="./src/css/resets.css" />
+		<link rel="stylesheet" href="./src/css/styles.css" />
+		<link rel="stylesheet" href="./src/css/themes.css" />
 	</head>
 	<body>
 		<div id="app">
@@ -19,15 +19,15 @@
 				</div>
 				<div class="buttons">
 					<button :disabled="!code.trim() || html" @click="save">
-						<img src="./img/save.svg" alt="" />
+						<img src="./src/img/save.svg" alt="" />
 						<span>Save</span>
 					</button>
 					<button :disabled="!html" @click="edit">
-						<img src="./img/copy.svg" alt="" />
+						<img src="./src/img/copy.svg" alt="" />
 						<span>Edit</span>
 					</button>
 					<button :disabled="!html" @click="make">
-						<img src="./img/new.svg" alt="" />
+						<img src="./src/img/new.svg" alt="" />
 						<span>Make</span>
 					</button>
 				</div>
@@ -62,5 +62,5 @@
 			</div>
 		</div>
 	</body>
-	<script src="./js/main.js"></script>
+	<script type="module" src="./src/js/main.js"></script>
 </html>
