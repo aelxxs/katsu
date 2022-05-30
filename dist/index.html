@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Katsu 勝つ</title>
+		<script src="./src/js/lucia.min.js"></script>
+		<script src="./src/js/highlight.min.js"></script>
+		
+		
+		
+		<script type="module" crossorigin src="/assets/index.c9d87485.js"></script>
+		<link rel="stylesheet" href="/assets/index.03f9800c.css">
+	</head>
+	<body>
+		<div id="app">
+			<nav>
+				<div class="branding">
+					<h1>Katsu 勝つ</h1>
+				</div>
+				<div class="buttons">
+					<button :disabled="!code.trim() || html" @click="save">
+						<img src="/assets/save.8d4d3b9f.svg" alt="" />
+						<span>Save</span>
+					</button>
+					<button :disabled="!html" @click="edit">
+						<img src="/assets/copy.27f0a49a.svg" alt="" />
+						<span>Edit</span>
+					</button>
+					<button :disabled="!html" @click="make">
+						<img src="/assets/new.2346448e.svg" alt="" />
+						<span>Make</span>
+					</button>
+				</div>
+				<div class="links">
+					<a href="mailto:hey@alexis.kr">
+						<span>@</span>
+					</a>
+					<span class="spacer">·</span>
+					<a href="https://alexis.kr">
+						<span>/website</span>
+					</a>
+					<span class="spacer">·</span>
+					<a href="https://alexis.kr/github">
+						<span>/github</span>
+					</a>
+				</div>
+			</nav>
+			<div class="scroll">
+				<div class="lines" l-for="(ln, index) in code.split('\n')">
+					<span l-text="this.index + 1"></span>
+				</div>
+				<pre :hidden="!html"><code l-html="html"></code></pre>
+				<div :hidden="html" class="wrapper">
+					<textarea
+						id="text"
+						autofocus
+						spellcheck="false"
+						:hidden="html"
+						l-model="code"
+					></textarea>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+</html>
