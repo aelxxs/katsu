@@ -2,7 +2,7 @@
 	"name": "katsu",
 	"scripts": {
 		"serve": "wrangler pages dev ./src --kv DOCUMENTS",
-		"build": ""
+		"build": "vite build"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^3.11.0",
