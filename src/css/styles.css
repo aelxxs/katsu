@@ -30,6 +30,10 @@ nav > * {
 	flex-direction: row;
 }
 
+.buttons {
+	justify-content: center;
+}
+
 .buttons > button {
 	margin-left: 0.5em;
 }
@@ -159,4 +163,12 @@ textarea {
 	border: none;
 	outline: 0;
 	tab-size: 4;
+}
+
+@media only screen and (max-width: 768px) {
+	nav {
+		border-bottom-left-radius: 0;
+		position: relative;
+		width: 100%;
+	}
 }
