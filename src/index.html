@@ -2,105 +2,65 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Katsu 勝つ</title>
-		<script src="https://unpkg.com/lucia"></script>
-		<script src="https://unpkg.com/shiki"></script>
-		<link rel="stylesheet" href="./styles/styles.css" />
+		<script src="./js/lucia.min.js"></script>
+		<script src="./js/highlight.min.js"></script>
+		<link rel="stylesheet" href="./css/resets.css" />
+		<link rel="stylesheet" href="./css/styles.css" />
+		<link rel="stylesheet" href="./css/themes.css" />
 	</head>
 	<body>
 		<div id="app">
 			<nav>
-				<button :disabled="!code || done" @click="save">Save</button>
-				<button :disabled="!html" @click="edit">Edit</button>
-				<button :disabled="!done" @click="make">Make</button>
-			</nav>
-			<div class="wrapper">
-				<div class="lines" l-for="(ln, index) in code.split('\n')">
-					<span class="line" l-text="this.index + 1"></span>
+				<div class="branding">
+					<h1>Katsu 勝つ</h1>
 				</div>
-				<pre :hidden="!done"><code l-text="html"></code></pre>
-				<textarea
-					spellcheck="false"
-					:hidden="done"
-					l-model="code"
-				></textarea>
+				<div class="buttons">
+					<button :disabled="!code.trim() || html" @click="save">
+						<img src="./img/save.svg" alt="" />
+						<span>Save</span>
+					</button>
+					<button :disabled="!html" @click="edit">
+						<img src="./img/copy.svg" alt="" />
+						<span>Edit</span>
+					</button>
+					<button :disabled="!html" @click="make">
+						<img src="./img/new.svg" alt="" />
+						<span>Make</span>
+					</button>
+				</div>
+				<div class="links">
+					<a href="mailto:hey@alexis.kr">
+						<span>@</span>
+					</a>
+					<span class="spacer">·</span>
+					<a href="https://alexis.kr">
+						<span>/website</span>
+					</a>
+					<span class="spacer">·</span>
+					<a href="https://alexis.kr/github">
+						<span>/github</span>
+					</a>
+				</div>
+			</nav>
+			<div class="scroll">
+				<div class="lines" l-for="(ln, index) in code.split('\n')">
+					<span l-text="this.index + 1"></span>
+				</div>
+				<pre :hidden="!html"><code l-html="html"></code></pre>
+				<div :hidden="html" class="wrapper">
+					<textarea
+						id="text"
+						autofocus
+						spellcheck="false"
+						:hidden="html"
+						l-model="code"
+					></textarea>
+				</div>
 			</div>
 		</div>
 	</body>
-
-	<script type="module">
-		const { init, component } = Lucia;
-
-		init();
-
-		const app = component({
-			html: "",
-			code: "",
-			done: false,
-			make() {
-				this.code = "";
-				this.html = "";
-				this.done = false;
-				window.history.pushState(null, "", "/");
-			},
-			edit() {
-				this.html = "";
-				this.done = false;
-				window.history.pushState(null, "", "/");
-			},
-			async save() {
-				if (this.code == "") return;
-
-				const res = await fetch("/api/doc", {
-					method: "POST",
-					body: this.code,
-				});
-
-				const { id, url } = await res.json();
-
-				this.html = this.code;
-				this.done = true;
-
-				window.history.pushState(null, "", `/${id}`);
-			},
-		});
-
-		async function onPop() {
-			const path = window.location.pathname;
-
-			if (path == "/") {
-				return app.state.make();
-			}
-			const [, id] = path.split("/");
-
-			try {
-				app.state.done = true;
-
-				const res = await fetch(`/api/doc/${id}`, {
-					method: "GET",
-				});
-
-				const { doc } = await res.json();
-
-				app.state.code = doc;
-				app.state.html = doc;
-			} catch {
-				window.history.pushState(null, "", `/`);
-				app.state.make();
-			}
-		}
-
-		document.addEventListener("paste", (event) => {
-			const clipboard = event.clipboardData ?? window.clipboardData;
-			const text = clipboard.getData("text");
-
-			app.state.code = text;
-			event.preventDefault();
-		});
-
-		document.addEventListener("popstate", onPop);
-		document.addEventListener("DOMContentLoaded", onPop, false);
-
-		app.mount("#app");
-	</script>
+	<script src="./js/main.js"></script>
 </html>
