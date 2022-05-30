@@ -17,8 +17,8 @@ function uid(len = 6): string {
 export const onRequestPost: PagesFunction<Environment> = async ({ env, request }) => {
 	const docLength = +(request.headers.get("Content-Length") ?? 0);
 
-	if (!docLength || docLength > 2000) {
-		return new Response(`Document size must be between 0 and 2000 characters.`, {
+	if (!docLength || docLength > 100000) {
+		return new Response(`Document size must be between 0 and 100000 characters.`, {
 			status: 400,
 		});
 	}
