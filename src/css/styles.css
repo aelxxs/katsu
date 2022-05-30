@@ -28,14 +28,15 @@ nav {
 nav > * {
 	display: flex;
 	flex-direction: row;
-}
-
-.buttons {
 	justify-content: center;
 }
 
 .buttons > button {
 	margin-left: 0.5em;
+}
+
+.buttons button:first-of-type {
+	margin-left: 0 !important;
 }
 
 button {
@@ -72,12 +73,10 @@ button > span {
 }
 
 .links {
-	justify-content: center;
 	margin-top: 0.65em;
 }
 
 .branding {
-	justify-content: center;
 	margin-bottom: 0.45em;
 	color: white;
 }
@@ -169,6 +168,10 @@ textarea {
 	nav {
 		border-bottom-left-radius: 0;
 		position: relative;
-		width: 100%;
+		width: 100vh;
+	}
+
+	nav > * {
+		justify-content: left;
 	}
 }
