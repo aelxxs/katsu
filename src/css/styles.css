@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+* {
+	font-family: "JetBrains Mono", monospace;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 1.2;
+}
+
+html,
+body,
+#app {
+	height: 100%;
+	background-color: #191b25;
+	color: #acb2bf;
+}
+
+nav {
+	background-color: #232533;
+	position: fixed;
+	padding: 1em;
+	z-index: 1;
+	right: 0;
+	user-select: none;
+	border-bottom-left-radius: 0.5em;
+}
+
+nav > * {
+	display: flex;
+	flex-direction: row;
+}
+
+.buttons > button {
+	margin-left: 0.5em;
+}
+
+button {
+	cursor: pointer;
+	align-items: center;
+	display: flex;
+	color: hsla(0, 0%, 100%, 0.811);
+	background-color: #44ca75;
+	padding: 0.45em;
+	border-radius: 0.35em;
+	border: 1px solid transparent;
+	vertical-align: middle;
+}
+
+button:active,
+button:hover,
+button:focus {
+	border: 1px solid #232533;
+	outline: none;
+}
+
+button[disabled] {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+button > img {
+	display: inline-block;
+	width: 12px;
+}
+
+button > span {
+	margin-left: 0.5em;
+}
+
+.links {
+	justify-content: center;
+	margin-top: 0.5em;
+}
+
+.branding {
+	justify-content: center;
+	margin-bottom: 0.45em;
+	color: white;
+}
+
+.branding > h1 {
+	font-weight: 600 !important;
+	font-size: 1.65em !important;
+	background: #44ca75;
+	background: linear-gradient(to top left, #44ca75 0%, #0acfc8 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.links > div {
+	margin: 0 10em;
+}
+
+.links > a {
+	text-decoration: none;
+	color: #acb2bf;
+}
+
+.links > a:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.spacer {
+	margin: 0 0.25em;
+}
+
+.wrapper {
+	display: grid;
+	height: 100%;
+	width: 100%;
+}
+
+.wrapper::after {
+	content: attr(data-raw) " ";
+	white-space: pre-wrap;
+	visibility: hidden;
+}
+
+.wrapper > textarea {
+	resize: none;
+	overflow: hidden;
+}
+
+.wrapper > textarea,
+.wrapper::after {
+	font: inherit;
+	grid-area: 1 / 1 / 2 / 2;
+}
+
+.scroll {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	padding: 1em 0.75em;
+}
+
+.lines {
+	color: #4a5162;
+	display: flex;
+	width: auto;
+	flex-direction: column;
+	text-align: end;
+	padding: 0 1em;
+	height: 100%;
+	user-select: none;
+}
+
+code {
+	tab-size: 4;
+}
+
+textarea {
+	background-color: #191b25;
+	color: #acb2bf;
+	padding-top: 0;
+	margin: 0;
+	border: none;
+	outline: 0;
+	tab-size: 4;
+}

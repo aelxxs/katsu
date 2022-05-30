@@ -6,6 +6,7 @@
 }
 
 /* Remove default margin */
+pre,
 body,
 h1,
 h2,
@@ -35,7 +36,6 @@ body {
 	min-height: 100vh;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
-	margin: 0 !important;
 }
 
 /* A elements that don't have a class get default styles */
