@@ -73,3 +73,10 @@ select {
 		scroll-behavior: auto !important;
 	}
 }
+
+/* tab size */
+pre,
+code,
+textarea {
+	tab-size: 4;
+}
