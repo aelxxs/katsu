@@ -19,6 +19,7 @@
 html,
 body,
 #app {
+	background-color: var(--bg-alpha);
 	min-height: 100vh;
 }
 
