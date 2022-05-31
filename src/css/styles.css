@@ -120,6 +120,7 @@ body,
 	.nav {
 		border-bottom-left-radius: 0;
 		position: relative;
+		min-width: 100vh;
 	}
 
 	.nav > * {
