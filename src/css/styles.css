@@ -1,87 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
 
+:root {
+	--bg-alpha: hsl(230, 19%, 12%);
+	--bg-delta: hsl(233, 19%, 17%);
+	--txt-alpha: "";
+	--txt-delta: "";
+	--txt-bravo: "";
+}
+
 * {
 	font-family: "JetBrains Mono", monospace;
 	font-weight: 400;
-	font-size: 13px;
 	line-height: 1.2;
+	font-size: 13px;
+	color: #acb2bf;
 }
 
 html,
 body,
 #app {
-	height: 100%;
-	background-color: #191b25;
-	color: #acb2bf;
+	min-height: 100vh;
 }
 
-nav {
-	background-color: #232533;
+/*---------------------\
+|*    <NAVIGATION>    *|
+\---------------------*/
+.nav {
+	display: flex;
+	flex-direction: column;
 	position: fixed;
-	padding: 1em;
+	padding: 1.5em;
 	z-index: 1;
 	right: 0;
 	user-select: none;
-	border-bottom-left-radius: 0.5em;
+	background-color: var(--bg-delta);
+	border-bottom-left-radius: 0.75em;
 }
 
-nav > * {
+.nav > * {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
 
-.buttons > button {
-	margin-left: 0.5em;
-}
-
-.buttons button:first-of-type {
-	margin-left: 0 !important;
-}
-
-button {
-	cursor: pointer;
-	align-items: center;
-	display: flex;
-	color: hsla(0, 0%, 100%, 0.811);
-	background-color: #44ca75;
-	padding: 0.45em;
-	border-radius: 0.35em;
-	border: 1px solid transparent;
-	vertical-align: middle;
-}
-
-button:active,
-button:hover,
-button:focus {
-	border: 1px solid #232533;
-	outline: none;
-}
-
-button[disabled] {
-	cursor: not-allowed;
-	opacity: 0.5;
-}
-
-button > img {
+.brand {
+	text-align: center;
 	display: inline-block;
-	width: 12px;
-}
-
-button > span {
-	margin-left: 0.5em;
-}
-
-.links {
-	margin-top: 0.65em;
-}
-
-.branding {
-	margin-bottom: 0.45em;
 	color: white;
-}
-
-.branding > h1 {
 	font-weight: 600 !important;
 	font-size: 1.65em !important;
 	background: #44ca75;
@@ -90,88 +55,128 @@ button > span {
 	-webkit-text-fill-color: transparent;
 }
 
-.links > div {
-	margin: 0 10em;
+.btn-group {
+	margin-top: 0.65em;
 }
 
-.links > a {
+.btn {
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+	padding: 0.45em;
+	cursor: pointer;
+	background-color: #44ca75;
+	border: 1px solid transparent;
+	border-radius: 0.35em;
+}
+
+.btn:active,
+.btn:hover,
+.btn:focus {
+	border: 1px solid #232533;
+	outline: none;
+}
+
+.btn[disabled] {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.btn-group .btn:not(:first-child) {
+	margin-left: 0.5em;
+}
+
+.btn > img {
+	width: 12px;
+}
+
+.btn > span {
+	color: white !important;
+	margin-left: 0.5em;
+}
+
+.link-group {
+	margin-top: 0.65em;
+}
+
+.link {
 	text-decoration: none;
 	color: #acb2bf;
 }
 
-.links > a:hover {
+.link-group span {
+	margin: 0 0.5em;
+}
+
+.link:active,
+.link:hover,
+.link:focus {
 	color: white;
 	text-decoration: underline;
 }
 
-.spacer {
-	margin: 0 0.25em;
-}
-
-.wrapper {
-	display: grid;
-	height: 100%;
-	width: 100%;
-}
-
-.wrapper::after {
-	content: attr(data-raw) " ";
-	white-space: pre-wrap;
-	visibility: hidden;
-}
-
-.wrapper > textarea {
-	resize: none;
-	overflow: hidden;
-}
-
-.wrapper > textarea,
-.wrapper::after {
-	font: inherit;
-	grid-area: 1 / 1 / 2 / 2;
-}
-
-.scroll {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	padding: 1em 0.75em;
-}
-
-.lines {
-	color: #4a5162;
-	display: flex;
-	width: auto;
-	flex-direction: column;
-	text-align: end;
-	padding: 0 1em;
-	height: 100%;
-	user-select: none;
-}
-
-code {
-	tab-size: 4;
-}
-
-textarea {
-	background-color: #191b25;
-	color: #acb2bf;
-	padding-top: 0;
-	margin: 0;
-	border: none;
-	outline: 0;
-	tab-size: 4;
-}
-
 @media only screen and (max-width: 768px) {
-	nav {
+	.nav {
 		border-bottom-left-radius: 0;
 		position: relative;
 		width: 100vh;
 	}
 
-	nav > * {
+	.nav > * {
 		justify-content: left;
 	}
+
+	.brand {
+		text-align: center;
+	}
+}
+
+/*-----------------\
+|*    <EDITOR>    *|
+\-----------------*/
+.wrapper {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	padding: 1.75em;
+	min-width: 100%;
+	min-height: 100%;
+	background-color: var(--bg-alpha);
+}
+
+.lines {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	padding: 0 1em;
+	color: #4a5162;
+	text-align: end;
+	user-select: none;
+}
+
+.editor {
+	display: grid;
+	width: 100%;
+	counter-increment: listing;
+}
+
+.editor::after {
+	content: attr(data-raw) " ";
+	white-space: pre-wrap;
+	visibility: hidden;
+}
+
+.editor > textarea {
+	border: none;
+	outline: 0;
+	tab-size: 4;
+	resize: none;
+	padding: 0;
+	overflow: hidden;
+	background-color: var(--bg-alpha);
+}
+
+.editor > textarea,
+.editor::after {
+	grid-area: 1 / 1 / 2 / 2;
 }

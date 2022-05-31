@@ -1,6 +1,6 @@
 const { init, component } = Lucia;
 
-const grower = document.querySelector(".wrapper");
+const grower = document.querySelector(".editor");
 const editor = document.querySelector("textarea");
 
 const app = component({

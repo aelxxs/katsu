@@ -2,59 +2,58 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Katsu 勝つ</title>
 		<script src="./lucia.min.js"></script>
 		<script src="./hljs.min.js"></script>
-		<script type="module" src="./src/js/main.js"></script>
 		<link rel="stylesheet" href="./src/css/resets.css" />
 		<link rel="stylesheet" href="./src/css/styles.css" />
 		<link rel="stylesheet" href="./src/css/themes.css" />
 	</head>
+
 	<body>
 		<div id="app">
-			<nav>
-				<div class="branding">
-					<h1>Katsu 勝つ</h1>
-				</div>
-				<div class="buttons">
-					<button :disabled="!code.trim() || html" @click="save">
+			<nav class="nav">
+				<h1 class="brand">Katsu 勝つ</h1>
+				<div class="btn-group">
+					<button
+						class="btn"
+						:disabled="!code.trim() || html.length"
+						@click="save"
+					>
 						<img src="./src/img/save.svg" alt="" />
 						<span>Save</span>
 					</button>
-					<button :disabled="!html" @click="edit">
+					<button class="btn" :disabled="!html.length" @click="edit">
 						<img src="./src/img/copy.svg" alt="" />
 						<span>Edit</span>
 					</button>
-					<button :disabled="!html" @click="make">
+					<button class="btn" :disabled="!html.length" @click="make">
 						<img src="./src/img/new.svg" alt="" />
 						<span>Make</span>
 					</button>
 				</div>
-				<div class="links">
-					<a href="mailto:hey@alexis.kr">
-						<span>@</span>
-					</a>
+				<div class="link-group">
+					<a class="link" href="mailto:hey@alexis.kr">@</a>
 					<span class="spacer">·</span>
-					<a href="https://alexis.kr">
-						<span>/website</span>
-					</a>
+					<a class="link" href="https://alexis.kr">/website</a>
 					<span class="spacer">·</span>
-					<a href="https://alexis.kr/github">
-						<span>/github</span>
-					</a>
+					<a class="link" href="https://alexis.kr/github">/github</a>
 				</div>
 			</nav>
-			<div class="scroll">
-				<div class="lines" l-for="(ln, index) in code.split('\n')">
-					<span l-text="this.index + 1"></span>
+
+			<div class="wrapper">
+				<div class="lines" l-for="(ln, i) in code.split('\n')">
+					<span l-text="this.i + 1"></span>
 				</div>
-				<pre :hidden="!html"><code l-html="html"></code></pre>
-				<div :hidden="html" class="wrapper">
+				<pre :hidden="!html">
+					<code l-html="html"></code>
+				</pre>
+				<div :hidden="html" class="editor">
 					<textarea
-						id="text"
 						autofocus
+						autocomplete="off"
+						autocapitalize="off"
+						autocorrect="off"
 						spellcheck="false"
 						:hidden="html"
 						l-model="code"
@@ -62,5 +61,7 @@
 				</div>
 			</div>
 		</div>
+
+		<script type="module" src="./src/js/main.js"></script>
 	</body>
 </html>
