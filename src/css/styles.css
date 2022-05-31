@@ -119,7 +119,6 @@ body,
 	.nav {
 		border-bottom-left-radius: 0;
 		position: relative;
-		width: 100vh;
 	}
 
 	.nav > * {
