@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Katsu 勝つ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script src="./lucia.min.js"></script>
 		<script src="./hljs.min.js"></script>
 		<link rel="stylesheet" href="./src/css/resets.css" />
@@ -45,9 +46,7 @@
 				<div class="lines" l-for="(ln, i) in code.split('\n')">
 					<span l-text="this.i + 1"></span>
 				</div>
-				<pre :hidden="!html.length">
-					<code l-html="html"></code>
-				</pre>
+				<pre :hidden="!html.length"><code l-html="html"></code></pre>
 				<div :hidden="html.length" class="editor">
 					<textarea
 						autofocus
