@@ -162,7 +162,6 @@ body,
 .editor {
 	display: grid;
 	width: 100%;
-	counter-increment: listing;
 }
 
 .editor::after {
