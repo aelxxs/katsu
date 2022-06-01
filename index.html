@@ -47,7 +47,7 @@
 				</div>
 				<pre :hidden="!html.length"><code l-html="html"></code></pre>
 				<div :hidden="html.length" class="editor">
-					<div l-text="code"></div>
+					<div :hidden="html.length" l-text="code"></div>
 					<textarea
 						autofocus
 						autocomplete="off"
