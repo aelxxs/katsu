@@ -41,13 +41,13 @@
 					<a class="link" href="https://alexis.kr/github">/github</a>
 				</div>
 			</nav>
-
 			<div class="wrapper">
 				<div class="lines" l-for="(ln, i) in code.split('\n')">
 					<span l-text="this.i + 1"></span>
 				</div>
 				<pre :hidden="!html.length"><code l-html="html"></code></pre>
 				<div :hidden="html.length" class="editor">
+					<div l-text="code"></div>
 					<textarea
 						autofocus
 						autocomplete="off"
@@ -60,7 +60,6 @@
 				</div>
 			</div>
 		</div>
-
 		<script type="module" src="./src/js/main.js"></script>
 	</body>
 </html>

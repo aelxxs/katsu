@@ -1,6 +1,5 @@
 const { init, component } = Lucia;
 
-const grower = document.querySelector(".editor");
 const editor = document.querySelector("textarea");
 
 const app = component({
@@ -14,7 +13,6 @@ const app = component({
 	},
 	edit() {
 		this.html = "";
-		grower.dataset.raw = this.code;
 		window.history.pushState(null, "", "/");
 	},
 	async save() {
@@ -30,7 +28,6 @@ const app = component({
 
 			const { id } = await res.json();
 
-			grower.dataset.raw = "";
 			this.html = hljs.highlightAuto(this.code).value;
 			window.history.pushState(null, "", `/${id}`);
 		} catch {
@@ -39,20 +36,16 @@ const app = component({
 	},
 });
 
-editor.addEventListener("input", () => {
-	grower.dataset.raw = editor.value;
-});
-
 editor.addEventListener("keydown", (event) => {
 	if (event.key === "Tab") {
 		event.preventDefault();
 
-		let start = document.selectionStart,
-			end = document.selectionEnd;
+		let start = editor.selectionStart,
+			end = editor.selectionEnd;
 
 		app.state.code = app.state.code.substring(0, start) + "\t" + app.state.code.substring(end);
 
-		document.selectionStart = document.selectionEnd = start + 1;
+		editor.selectionStart = editor.selectionEnd = start + 1;
 	}
 });
 

@@ -160,27 +160,20 @@ body,
 }
 
 .editor {
-	display: grid;
+	position: relative;
+	display: flex;
 	width: 100%;
 }
 
-.editor::after {
-	content: attr(data-raw) " ";
-	white-space: pre-wrap;
-	visibility: hidden;
-}
-
 .editor > textarea {
+	position: absolute;
+	overflow-y: hidden;
 	border: none;
 	outline: 0;
 	tab-size: 4;
 	resize: none;
 	padding: 0;
-	overflow: hidden;
+	width: 100%;
+	height: 100%;
 	background-color: var(--bg-alpha);
-}
-
-.editor > textarea,
-.editor::after {
-	grid-area: 1 / 1 / 2 / 2;
 }
