@@ -72,9 +72,9 @@ body,
 	border-radius: 0.35em;
 }
 
-.btn:active,
-.btn:hover,
-.btn:focus {
+.btn:active:enabled,
+.btn:hover:enabled,
+.btn:focus:enabled {
 	border: 1px solid #232533;
 	outline: none;
 }
