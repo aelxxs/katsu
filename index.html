@@ -45,16 +45,15 @@
 				<div class="lines" l-for="(ln, i) in code.split('\n')">
 					<span l-text="this.i + 1"></span>
 				</div>
-				<pre :hidden="!html.length"><code l-html="html"></code></pre>
-				<div :hidden="html.length" class="editor">
-					<div :hidden="html.length" l-text="code"></div>
+				<pre l-show="html.length"><code l-html="html"></code></pre>
+				<div l-show="!html.length" class="editor">
+					<div l-text="code"></div>
 					<textarea
 						autofocus
 						autocomplete="off"
 						autocapitalize="off"
 						autocorrect="off"
 						spellcheck="false"
-						:hidden="html.length"
 						l-model="code"
 					></textarea>
 				</div>
