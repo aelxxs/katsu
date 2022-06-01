@@ -151,9 +151,12 @@ body,
 	flex-direction: column;
 	position: relative;
 	padding: 0 1em;
-	color: #4a5162;
 	text-align: end;
 	user-select: none;
+}
+
+.lines > span {
+	color: #4a5162;
 }
 
 .editor {
