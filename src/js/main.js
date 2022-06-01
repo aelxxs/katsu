@@ -30,6 +30,7 @@ const app = component({
 
 			const { id } = await res.json();
 
+			grower.dataset.raw = "";
 			this.html = hljs.highlightAuto(this.code).value;
 			window.history.pushState(null, "", `/${id}`);
 		} catch {
