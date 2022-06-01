@@ -6,6 +6,7 @@
 	--txt-alpha: "";
 	--txt-delta: "";
 	--txt-bravo: "";
+	color-scheme: light dark;
 }
 
 * {
