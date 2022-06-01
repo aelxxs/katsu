@@ -1,3 +1,4 @@
+const THREE_MONTHS = 7.884e6;
 const DICT =
 	"abcdefghijklmnopqrstuvwxyz" + // -
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
@@ -26,7 +27,9 @@ export const onRequestPost: PagesFunction<Environment> = async ({ env, request }
 	const id = uid();
 	const doc = await request.text();
 
-	await env.DOCUMENTS.put(`doc:${id}`, doc);
+	await env.DOCUMENTS.put(`doc:${id}`, doc, {
+		expirationTtl: THREE_MONTHS,
+	});
 
 	return new Response(JSON.stringify({ id, url: `${request.url}/${id}` }), {
 		status: 200,
