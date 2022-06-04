@@ -1,11 +1,10 @@
-const { init, component } = Lucia;
+const { component } = Lucia;
 
 const editor = document.querySelector("textarea");
 
 const app = component({
 	html: "",
 	code: "",
-	raw: "",
 	make() {
 		this.code = "";
 		this.html = "";
