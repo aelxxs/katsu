@@ -3,7 +3,7 @@ const DICT =
 	"abcdefghijklmnopqrstuvwxyz" + // -
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
 	"0123456789" +
-	"-._~";
+	"-_~";
 
 function uid(len = 6): string {
 	let out = "";
