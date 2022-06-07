@@ -1,26 +1,5 @@
 const URL_REGEX = /\/([\w]*)\.?(\w*)?\#?(L[\d]*[\-?L[\d]*]?)?/;
 
-hljs.addPlugin({
-	"after:highlight": (params) => {
-		console.log({ params });
-		const openTags = [];
-
-		params.value = params.value.replace(/(<span [^>]+>)|(<\/span>)|(\n)/g, (match) => {
-			if (match === "\n") {
-				return "</span>".repeat(openTags.length) + "\n" + openTags.join("");
-			}
-
-			if (match === "</span>") {
-				openTags.pop();
-			} else {
-				openTags.push(match);
-			}
-
-			return match;
-		});
-	},
-});
-
 const { component } = Lucia;
 
 const editor = document.querySelector("textarea");
