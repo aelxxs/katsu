@@ -89,7 +89,7 @@ function transform(text) {
 
 	// ! THIS DOESN'T ALWAYS WORK HELP
 	for (const line of lines.split(/\n/)) {
-		html += `<div class='code-line'>${line || "<br>"}</div>`;
+		html += `<div class='line'>${line || "<br>"}</div>`;
 	}
 
 	return html;

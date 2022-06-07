@@ -157,11 +157,8 @@ body,
 }
 
 .lines > span {
-	color: hsl(223, 14%, 34%);
-}
-
-.line {
 	cursor: pointer;
+	color: hsl(223, 14%, 34%);
 }
 
 .line:hover,
@@ -196,7 +193,7 @@ body,
 	background: rgba(187, 128, 9, 0.098);
 }
 
-.code-line {
+.line {
 	padding: 0 0.5em;
 	white-space: pre;
 }
