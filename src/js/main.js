@@ -53,6 +53,7 @@ const app = component({
 				window.history.pushState({}, "", `#L${ln}-L${this.hash.l2}`);
 			} else {
 				this.hash.l1 = ln;
+				window.history.pushState({}, "", `#L${ln}`);
 			}
 		} else {
 			this.hash.l1 = ln;
