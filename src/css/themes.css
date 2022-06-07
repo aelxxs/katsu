@@ -69,6 +69,10 @@ code.hljs {
 	display: inline-block;
 }
 
+.hljs-code {
+	display: inline-block;
+}
+
 /* base04 - #565c64 -  Dark Foreground (Used for status bars) */
 .hljs-tag {
 	color: #565c64;
