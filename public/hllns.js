@@ -9,7 +9,7 @@
 		const start = --area.start;
 		const end = --area.end;
 
-		const lines = code.getElementsByClassName("code-line");
+		const lines = code.getElementsByClassName("line");
 
 		if (start < 0 || end > lines.length) return;
 
