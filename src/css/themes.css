@@ -61,7 +61,12 @@ code.hljs {
 
 /* base03 - #545862 -  Comments, Invisibles, Line Highlighting */
 .hljs-comment {
+	display: inline-block;
 	color: #545862;
+}
+
+.hljs-string {
+	display: inline-block;
 }
 
 /* base04 - #565c64 -  Dark Foreground (Used for status bars) */
