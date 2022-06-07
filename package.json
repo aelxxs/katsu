@@ -1,7 +1,7 @@
 {
 	"name": "katsu",
 	"scripts": {
-		"serve": "wrangler pages dev ./src --kv DOCUMENTS",
+		"serve": "wrangler pages dev ./dist --kv DOCUMENTS",
 		"build": "vite build"
 	},
 	"devDependencies": {

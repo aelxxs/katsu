@@ -11,7 +11,6 @@
 
 		const lines = code.getElementsByClassName("line");
 
-		console.log(lines);
 		if (start < 0 || end > lines.length) return;
 
 		for (const line of lines) {
