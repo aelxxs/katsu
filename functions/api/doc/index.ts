@@ -2,8 +2,7 @@ const THREE_MONTHS = 7.884e6;
 const DICT =
 	"abcdefghijklmnopqrstuvwxyz" + // -
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-	"0123456789" +
-	"-_~";
+	"0123456789";
 
 function uid(len = 6): string {
 	let out = "";
