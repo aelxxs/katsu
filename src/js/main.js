@@ -106,16 +106,13 @@ function transform(text) {
 	});
 
 	let html = "";
+
+	// ! THIS DOESN'T ALWAYS WORK HELP
 	for (const line of lines.split(/\n/)) {
 		html += `<div class='code-line'>${line || "<br>"}</div>`;
 	}
 
 	return html;
-	console.log(text);
-	return text.replace(/([ \t\S]*\n|[ \t\S]*$)/gm, (match) => {
-		console.log({ match });
-		return `<div class='code-line'>${match}</div>`;
-	});
 }
 
 editor.addEventListener("keydown", (event) => {
