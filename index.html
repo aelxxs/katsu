@@ -6,9 +6,10 @@
 		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
 		<script src="./lucia.min.js"></script>
 		<script src="./hljs.min.js"></script>
-		<link rel="stylesheet" href="./src/css/resets.css" />
-		<link rel="stylesheet" href="./src/css/styles.css" />
-		<link rel="stylesheet" href="./src/css/themes.css" />
+		<script src="./hllns.js"></script>
+		<link rel="stylesheet" href="./css/resets.css" />
+		<link rel="stylesheet" href="./css/styles.css" />
+		<link rel="stylesheet" href="./css/themes.css" />
 	</head>
 	<body>
 		<div id="app">
@@ -20,15 +21,15 @@
 						:disabled="!code.trim() || html.length"
 						@click="save"
 					>
-						<img src="./src/img/save.svg" alt="" />
+						<img src="./img/save.svg" alt="" />
 						<span>Save</span>
 					</button>
 					<button class="btn" :disabled="!html.length" @click="edit">
-						<img src="./src/img/copy.svg" alt="" />
+						<img src="./img/copy.svg" alt="" />
 						<span>Edit</span>
 					</button>
 					<button class="btn" :disabled="!html.length" @click="make">
-						<img src="./src/img/new.svg" alt="" />
+						<img src="./img/new.svg" alt="" />
 						<span>Make</span>
 					</button>
 				</div>
@@ -51,7 +52,12 @@
 			</nav>
 			<div class="wrapper">
 				<div class="lines" l-for="(ln, i) in code.split('\n')">
-					<span l-text="this.i + 1"></span>
+					<span
+						class="line"
+						@click.self="select(event, this.i + 1)"
+						:id="`L${this.i + 1}`"
+						l-text="this.i + 1"
+					></span>
 				</div>
 				<pre l-show="html.length"><code l-html="html"></code></pre>
 				<div l-show="!html.length" class="editor">
@@ -67,6 +73,6 @@
 				</div>
 			</div>
 		</div>
-		<script type="module" src="./src/js/main.js"></script>
+		<script type="module" src="./js/main.js"></script>
 	</body>
 </html>

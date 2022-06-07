@@ -3,9 +3,9 @@
 :root {
 	--bg-alpha: hsl(230, 19%, 12%);
 	--bg-delta: hsl(233, 19%, 17%);
-	--txt-alpha: "";
-	--txt-delta: "";
-	--txt-bravo: "";
+	--txt-alpha: hsl(221, 13%, 71%);
+	--txt-bravo: hsl(223, 14%, 34%);
+	--txt-delta: hsl(0, 0%, 100%);
 	color-scheme: light dark;
 }
 
@@ -14,7 +14,7 @@
 	font-weight: 400;
 	line-height: 1.2;
 	font-size: 13px;
-	color: #acb2bf;
+	color: var(--txt-alpha);
 }
 
 html,
@@ -151,13 +151,22 @@ body,
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	padding: 0 1em;
+	padding: 0 0.6em;
 	text-align: end;
 	user-select: none;
 }
 
 .lines > span {
-	color: #4a5162;
+	color: hsl(223, 14%, 34%);
+}
+
+.line {
+	cursor: pointer;
+}
+
+.line:hover,
+.line:active {
+	color: hsl(0, 0%, 100%);
 }
 
 .editor {
@@ -167,6 +176,7 @@ body,
 }
 
 .editor > textarea {
+	caret-color: #44ca75;
 	position: absolute;
 	overflow-y: hidden;
 	border: none;
@@ -174,7 +184,19 @@ body,
 	tab-size: 4;
 	resize: none;
 	padding: 0;
+	padding-left: 0.5em;
 	width: 100%;
 	height: 100%;
 	background-color: var(--bg-alpha);
+}
+
+.highlighted {
+	width: 100%;
+	box-shadow: inset 2px 0 0 orange;
+	background: rgba(187, 128, 9, 0.098);
+}
+
+.code-line {
+	padding: 0 0.5em;
+	white-space: pre;
 }

@@ -1,3 +1,26 @@
+const URL_REGEX = /\/([\w]*)\.?(\w*)?\#?(L[\d]*[\-?L[\d]*]?)?/;
+
+hljs.addPlugin({
+	"after:highlight": (params) => {
+		console.log({ params });
+		const openTags = [];
+
+		params.value = params.value.replace(/(<span [^>]+>)|(<\/span>)|(\n)/g, (match) => {
+			if (match === "\n") {
+				return "</span>".repeat(openTags.length) + "\n" + openTags.join("");
+			}
+
+			if (match === "</span>") {
+				openTags.pop();
+			} else {
+				openTags.push(match);
+			}
+
+			return match;
+		});
+	},
+});
+
 const { component } = Lucia;
 
 const editor = document.querySelector("textarea");
@@ -5,14 +28,18 @@ const editor = document.querySelector("textarea");
 const app = component({
 	html: "",
 	code: "",
+	hash: {
+		l1: null,
+		l2: null,
+	},
 	make() {
 		this.code = "";
 		this.html = "";
-		window.history.pushState(null, "", "/");
+		window.history.pushState({}, "", "/");
 	},
 	edit() {
 		this.html = "";
-		window.history.pushState(null, "", "/");
+		window.history.pushState({}, "", "/");
 	},
 	async save() {
 		if (this.code.trim() == "") {
@@ -26,14 +53,70 @@ const app = component({
 			});
 
 			const { id } = await res.json();
+			const { value } = hljs.highlightAuto(this.code);
 
-			this.html = hljs.highlightAuto(this.code).value;
+			this.html = transform(value);
 			window.history.pushState(null, "", `/${id}`);
 		} catch {
 			this.make();
 		}
 	},
+	select(event, ln) {
+		if (!this.html) return;
+
+		if (event.shiftKey) {
+			if (this.hash.l1 && ln > this.hash.l1) {
+				this.hash.l2 = ln;
+				window.history.pushState({}, "", `#L${this.hash.l1}-L${ln}`);
+			} else if (this.hash.l1 && ln < this.hash.l1) {
+				this.hash.l2 = this.hash.l1;
+				this.hash.l1 = ln;
+				window.history.pushState({}, "", `#L${ln}-L${this.hash.l2}`);
+			} else {
+				this.hash.l1 = ln;
+			}
+		} else {
+			this.hash.l1 = ln;
+			this.hash.l2 = null;
+			window.history.pushState({}, "", `#L${ln}`);
+		}
+
+		hljs.highlightLines(document.querySelector("code"), {
+			start: this.hash.l1,
+			end: this.hash.l2 || this.hash.l1,
+		});
+	},
 });
+
+function transform(text) {
+	const openTags = [];
+
+	const lines = text.replace(/(<span [^>]+>)|(<\/span>)|(\n)/g, (match) => {
+		if (match === "\n") {
+			return "</span>".repeat(openTags.length) + "\n" + openTags.join("");
+		}
+
+		if (match === "</span>") {
+			openTags.pop();
+		} else {
+			openTags.push(match);
+		}
+
+		return match;
+	});
+
+	let html = "";
+	for (const line of lines.split(/\n/)) {
+		html += `<div class='code-line'>${line || "<br>"}</div>`;
+	}
+
+	return html;
+	console.log(text);
+	return text.replace(/([ \t\S]*\n|[ \t\S]*$)/gm, (match) => {
+		console.log({ match });
+		return `<div class='code-line'>${match}</div>`;
+	});
+}
 
 editor.addEventListener("keydown", (event) => {
 	if (event.key === "Tab") {
@@ -49,14 +132,14 @@ editor.addEventListener("keydown", (event) => {
 });
 
 async function onPop() {
-	const path = window.location.pathname;
+	const urlPath = window.location.pathname;
+	const urlHash = window.location.hash;
 
-	if (path === "/") {
+	if (urlPath === "/") {
 		return app.state.make();
 	}
 
-	const [, first] = path.split("/");
-	const [id, language] = first.split(".");
+	const [, id, language, hash] = URL_REGEX.exec(urlPath + urlHash);
 
 	try {
 		const res = await fetch(`/api/doc/${id}`, {
@@ -68,11 +151,35 @@ async function onPop() {
 		app.state.code = doc;
 
 		try {
-			app.state.html = (language ? hljs.highlight(doc, { language }) : hljs.highlightAuto(doc)).value;
-		} catch {
-			app.state.html = hljs.highlightAuto(doc).value;
+			if (language) {
+				const { value } = hljs.highlight(doc, { language });
+
+				app.state.html = transform(value);
+			} else {
+				const { value } = hljs.highlightAuto(doc);
+
+				app.state.html = transform(value);
+			}
+		} catch (error) {
+			console.log({ error });
+			const { value } = hljs.highlightAuto(doc);
+
+			app.state.html = transform(value);
 		}
-	} catch {
+
+		if (hash) {
+			const [l1, l2] = hash.split(/\-/);
+
+			hljs.highlightLines(document.querySelector("code"), {
+				start: +l1.substring(1),
+				end: +l2?.substring(1) || +l1.substring(1),
+			});
+
+			document.getElementById(l1)?.scrollIntoView({
+				behavior: "smooth",
+			});
+		}
+	} catch (error) {
 		window.history.pushState(null, "", `/`);
 		app.state.make();
 	}
