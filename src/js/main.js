@@ -1,4 +1,5 @@
 const URL_REGEX = /\/([\w]*)\.?(\w*)?\#?(L[\d]*[\-?L[\d]*]?)?/;
+const SPAN_REGEX = /(<span [^>]+>)|(<\/span>)|(\n)/g;
 
 const { component } = Lucia;
 
@@ -71,7 +72,7 @@ const app = component({
 function transform(text) {
 	const openTags = [];
 
-	const lines = text.replace(/(<span [^>]+>)|(<\/span>)|(\n)/g, (match) => {
+	const lines = text.replace(SPAN_REGEX, (match) => {
 		if (match === "\n") {
 			return "</span>".repeat(openTags.length) + "\n" + openTags.join("");
 		}
@@ -87,7 +88,6 @@ function transform(text) {
 
 	let html = "";
 
-	// ! THIS DOESN'T ALWAYS WORK HELP
 	for (const line of lines.split(/\n/)) {
 		html += `<div class='line'>${line || "<br>"}</div>`;
 	}
