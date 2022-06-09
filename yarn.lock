@@ -694,10 +694,10 @@ vite@2.9.9:
   optionalDependencies:
     fsevents "~2.3.2"
 
-wrangler@0.0.0-c2d2f44:
-  version "0.0.0-c2d2f44"
-  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-0.0.0-c2d2f44.tgz#217075a69de5bf1085591754947265836d7d3f10"
-  integrity sha512-cKUD8+6OixDkQtZUUNXEbcwDJH7XextUNSjMK1TZVsmMod6D7Yihr2btc6aCyF9djCTl4Mb0h9WMkGa0QIlvfg==
+wrangler@0.0.34:
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-0.0.34.tgz#d24fbd4a1055f01f805be0186c3267c4b2c15e98"
+  integrity sha512-NOIXX2L1jq40XVbouSFTo8N6m9NZ8sWvMjFjBsF4bqNcBXjxaP3ZqqjjVNLGQgeYtSDGP9cm7fcXyy0UO9xKtA==
   dependencies:
     "@esbuild-plugins/node-globals-polyfill" "^0.1.1"
     "@esbuild-plugins/node-modules-polyfill" "^0.1.4"
