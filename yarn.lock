@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@cloudflare/workers-types@^3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-3.11.0.tgz#8067dede888ea495cae06898d5e75e4401acf435"
-  integrity sha512-XmKgZZHrCdPsoVQkdd365R7GvwTwDVJsMyEG3Dq/Tgxz6vgrps2c8PXBqEutguwvl0zDAF0AL0e2Z8WG9Dffjw==
+"@cloudflare/workers-types@3.12.0":
+  version "3.12.0"
+  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-3.12.0.tgz#b6d735ea68f97c2845bbc0d05f987c95ce8dfb9b"
+  integrity sha512-k+46UngWHFRfqwHwcYvmOPvKXVDIhmKj7GcvhpChJ+WPfu5S49vtEFtCIMsgayo9wDgfotZ/Jq9KHi+GJPIzCg==
 
 "@esbuild-plugins/node-globals-polyfill@^0.1.1":
   version "0.1.1"
@@ -682,7 +682,7 @@ undici@4.13.0:
   resolved "https://registry.yarnpkg.com/undici/-/undici-4.13.0.tgz#7d10fe150c3241a6b3b0eba80eff59c9fb40f359"
   integrity sha512-8lk8S/f2V0VUNGf2scU2b+KI2JSzEQLdCyRNRF3XmHu+5jectlSDaPSBCXAHFaUlt1rzngzOBVDgJS9/Gue/KA==
 
-vite@^2.9.9:
+vite@2.9.9:
   version "2.9.9"
   resolved "https://registry.yarnpkg.com/vite/-/vite-2.9.9.tgz#8b558987db5e60fedec2f4b003b73164cb081c5e"
   integrity sha512-ffaam+NgHfbEmfw/Vuh6BHKKlI/XIAhxE5QSS7gFLIngxg171mg1P3a4LSRME0z2ZU1ScxoKzphkipcYwSD5Ew==
@@ -694,7 +694,7 @@ vite@^2.9.9:
   optionalDependencies:
     fsevents "~2.3.2"
 
-wrangler@^0.0.0-c2d2f44:
+wrangler@0.0.0-c2d2f44:
   version "0.0.0-c2d2f44"
   resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-0.0.0-c2d2f44.tgz#217075a69de5bf1085591754947265836d7d3f10"
   integrity sha512-cKUD8+6OixDkQtZUUNXEbcwDJH7XextUNSjMK1TZVsmMod6D7Yihr2btc6aCyF9djCTl4Mb0h9WMkGa0QIlvfg==
