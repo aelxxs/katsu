@@ -29,6 +29,8 @@ body,
 \---------------------*/
 .nav {
 	display: flex;
+	align-items: center;
+	gap: 1em;
 	flex-direction: column;
 	position: fixed;
 	padding: 1.5em;
@@ -40,26 +42,19 @@ body,
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px;
 }
 
-.nav > * {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
 .brand {
-	text-align: center;
-	display: inline-block;
-	color: white;
-	font-weight: 600 !important;
-	font-size: 1.65em !important;
+	font-weight: 600;
+	font-size: 1.65em;
 	background: #44ca75;
 	background: linear-gradient(to top left, #44ca75 0%, #0acfc8 100%);
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 .btn-group {
-	margin-top: 0.65em;
+	display: flex;
+	gap: 0.5em;
 }
 
 .btn {
@@ -73,7 +68,6 @@ body,
 	border-radius: 0.35em;
 }
 
-.btn:active:enabled,
 .btn:hover:enabled,
 .btn:focus:enabled {
 	border: 1px solid #232533;
@@ -85,21 +79,22 @@ body,
 	opacity: 0.5;
 }
 
-.btn-group .btn:not(:first-child) {
-	margin-left: 0.5em;
-}
-
 .btn > img {
-	width: 12px;
+	width: 1em;
 }
 
 .btn > span {
-	color: white !important;
+	color: white;
 	margin-left: 0.5em;
 }
 
 .link-group {
-	margin-top: 0.65em;
+	position: fixed;
+	padding: 1em;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	gap: 0.5em;
 }
 
 .link {
@@ -107,31 +102,10 @@ body,
 	color: #acb2bf;
 }
 
-.link-group span {
-	margin: 0 0.5em;
-}
-
-.link:active,
 .link:hover,
 .link:focus {
 	color: white;
 	text-decoration: underline;
-}
-
-@media only screen and (max-width: 768px) {
-	.nav {
-		border-bottom-left-radius: 0;
-		position: relative;
-		min-width: 100vh;
-	}
-
-	.nav > * {
-		justify-content: left;
-	}
-
-	.brand {
-		text-align: left;
-	}
 }
 
 /*-----------------\
@@ -161,8 +135,7 @@ body,
 	color: hsl(223, 14%, 34%);
 }
 
-.lines > span:hover,
-.lines > span:active {
+.lines > span:hover {
 	color: hsl(0, 0%, 100%);
 }
 
@@ -176,14 +149,14 @@ body,
 	caret-color: #44ca75;
 	position: absolute;
 	overflow-y: hidden;
+	height: 100%;
+	width: 100%;
 	border: none;
 	outline: 0;
 	tab-size: 4;
 	resize: none;
 	padding: 0;
 	padding-left: 0.5em;
-	width: 100%;
-	height: 100%;
 	background-color: var(--bg-alpha);
 }
 
