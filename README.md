@@ -1,3 +1,3 @@
 ## katsu – serverless hastebin
 
-⚠️ WIP... check in later. 🦖
+⚠️ WIP... check in later.
