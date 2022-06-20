@@ -682,10 +682,10 @@ undici@4.13.0:
   resolved "https://registry.yarnpkg.com/undici/-/undici-4.13.0.tgz#7d10fe150c3241a6b3b0eba80eff59c9fb40f359"
   integrity sha512-8lk8S/f2V0VUNGf2scU2b+KI2JSzEQLdCyRNRF3XmHu+5jectlSDaPSBCXAHFaUlt1rzngzOBVDgJS9/Gue/KA==
 
-vite@2.9.9:
-  version "2.9.9"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.9.9.tgz#8b558987db5e60fedec2f4b003b73164cb081c5e"
-  integrity sha512-ffaam+NgHfbEmfw/Vuh6BHKKlI/XIAhxE5QSS7gFLIngxg171mg1P3a4LSRME0z2ZU1ScxoKzphkipcYwSD5Ew==
+vite@2.9.12:
+  version "2.9.12"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.9.12.tgz#b1d636b0a8ac636afe9d83e3792d4895509a941b"
+  integrity sha512-suxC36dQo9Rq1qMB2qiRorNJtJAdxguu5TMvBHOc/F370KvqAe9t48vYp+/TbPKRNrMh/J55tOUmkuIqstZaew==
   dependencies:
     esbuild "^0.14.27"
     postcss "^8.4.13"
@@ -694,10 +694,10 @@ vite@2.9.9:
   optionalDependencies:
     fsevents "~2.3.2"
 
-wrangler@0.0.0-c2d2f44:
-  version "0.0.0-c2d2f44"
-  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-0.0.0-c2d2f44.tgz#217075a69de5bf1085591754947265836d7d3f10"
-  integrity sha512-cKUD8+6OixDkQtZUUNXEbcwDJH7XextUNSjMK1TZVsmMod6D7Yihr2btc6aCyF9djCTl4Mb0h9WMkGa0QIlvfg==
+wrangler@0.0.34:
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-0.0.34.tgz#d24fbd4a1055f01f805be0186c3267c4b2c15e98"
+  integrity sha512-NOIXX2L1jq40XVbouSFTo8N6m9NZ8sWvMjFjBsF4bqNcBXjxaP3ZqqjjVNLGQgeYtSDGP9cm7fcXyy0UO9xKtA==
   dependencies:
     "@esbuild-plugins/node-globals-polyfill" "^0.1.1"
     "@esbuild-plugins/node-modules-polyfill" "^0.1.4"
