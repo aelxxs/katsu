@@ -6,7 +6,7 @@
 	--txt-alpha: hsl(221, 13%, 71%);
 	--txt-bravo: hsl(223, 14%, 34%);
 	--txt-delta: hsl(0, 0%, 100%);
-	color-scheme: light dark;
+	color-scheme: dark;
 }
 
 * {
@@ -39,7 +39,7 @@ body,
 	user-select: none;
 	background-color: var(--bg-delta);
 	border-bottom-left-radius: 0.75em;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .brand {
