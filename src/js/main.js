@@ -70,25 +70,9 @@ const app = component({
 });
 
 function transform(text) {
-	const openTags = [];
-
-	const lines = text.replace(SPAN_REGEX, (match) => {
-		if (match === "\n") {
-			return "</span>".repeat(openTags.length) + "\n" + openTags.join("");
-		}
-
-		if (match === "</span>") {
-			openTags.pop();
-		} else {
-			openTags.push(match);
-		}
-
-		return match;
-	});
-
 	let html = "";
 
-	for (const line of lines.split(/\n/)) {
+	for (const line of text.split(/\n/)) {
 		html += `<div class='line'>${line || "<br>"}</div>`;
 	}
 

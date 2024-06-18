@@ -30,7 +30,7 @@ body,
 .nav {
 	display: flex;
 	align-items: center;
-	gap: 1em;
+	gap: 1.5em;
 	flex-direction: column;
 	position: fixed;
 	padding: 1.5em;
@@ -38,13 +38,13 @@ body,
 	right: 0;
 	user-select: none;
 	background-color: var(--bg-delta);
-	border-bottom-left-radius: 0.75em;
+	border-bottom-left-radius: 0.55rem;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .brand {
 	font-weight: 600;
-	font-size: 1.65em;
+	font-size: 1.65rem;
 	background: #44ca75;
 	background: linear-gradient(to top left, #44ca75 0%, #0acfc8 100%);
 	background-clip: text;
@@ -54,18 +54,19 @@ body,
 
 .btn-group {
 	display: flex;
-	gap: 0.5em;
+	gap: 0.75rem;
 }
 
 .btn {
 	display: flex;
 	align-items: center;
 	vertical-align: middle;
-	padding: 0.45em;
+	padding: 0.5rem;
 	cursor: pointer;
 	background-color: #44ca75;
 	border: 1px solid transparent;
-	border-radius: 0.35em;
+	border-radius: 0.35rem;
+	gap: 0.25rem;
 }
 
 .btn:hover:enabled,
@@ -80,21 +81,21 @@ body,
 }
 
 .btn > img {
-	width: 1em;
+	width: 1rem;
 }
 
 .btn > span {
 	color: white;
-	margin-left: 0.5em;
+	margin-left: 0.5rem;
 }
 
 .link-group {
 	position: fixed;
-	padding: 1em;
+	padding: 1rem;
 	right: 0;
 	bottom: 0;
 	display: flex;
-	gap: 0.5em;
+	gap: 0.5rem;
 }
 
 .link {
@@ -115,7 +116,7 @@ body,
 	position: absolute;
 	display: flex;
 	flex-direction: row;
-	padding: 1.75em;
+	padding: 1.75rem;
 	min-width: 100%;
 	min-height: 100%;
 	background-color: var(--bg-alpha);
@@ -125,7 +126,6 @@ body,
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	padding: 0 0.6em;
 	text-align: end;
 	user-select: none;
 }
@@ -133,6 +133,8 @@ body,
 .lines > span {
 	cursor: pointer;
 	color: hsl(223, 14%, 34%);
+	border-right: 1px solid var(--txt-bravo);
+	padding-right: 1.5rem;
 }
 
 .lines > span:hover {
@@ -156,17 +158,22 @@ body,
 	tab-size: 4;
 	resize: none;
 	padding: 0;
-	padding-left: 0.5em;
+	margin: 0;
+	padding-left: 1.5rem;
 	background-color: var(--bg-alpha);
 }
 
 .highlighted {
 	width: 100%;
-	box-shadow: inset 2px 0 0 orange;
+	box-shadow: inset 2.5px 0 0 orange;
 	background: rgba(187, 128, 9, 0.098);
 }
 
+.line.highlighted {
+	padding-right: 1.5rem;
+}
+
 .line {
-	padding: 0 0.5em;
+	padding-left: 1.5rem;
 	white-space: pre;
 }
