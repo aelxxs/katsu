@@ -729,10 +729,10 @@ mime@^3.0.0:
   resolved "https://registry.yarnpkg.com/mime/-/mime-3.0.0.tgz#b374550dca3a0c18443b0c950a6a58f1931cf7a7"
   integrity sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==
 
-miniflare@4.20250617.0:
-  version "4.20250617.0"
-  resolved "https://registry.yarnpkg.com/miniflare/-/miniflare-4.20250617.0.tgz#8c94187ced271768ec3fe692ca94f5219442e57b"
-  integrity sha512-jQL3r+nOn+WgGlJjTKB7x2jVJcd33ZOIFbj7RqGv3kuPTMOQDuPc44Yx347g2JXvpU/HMlUPoBbPe3enE9V/ew==
+miniflare@4.20250617.3:
+  version "4.20250617.3"
+  resolved "https://registry.yarnpkg.com/miniflare/-/miniflare-4.20250617.3.tgz#ac152ce430759f55a86fb485feff442049c3e860"
+  integrity sha512-j+LZycT11UdlVeNdaqD0XdNnYnqAL+wXmboz+tNPFgTq6zhD489Ujj3BfSDyEHDCA9UFBLbkc5ByGWBh+pYZ5Q==
   dependencies:
     "@cspotcode/source-map-support" "0.8.1"
     acorn "8.14.0"
@@ -950,16 +950,16 @@ workerd@1.20250617.0:
     "@cloudflare/workerd-linux-arm64" "1.20250617.0"
     "@cloudflare/workerd-windows-64" "1.20250617.0"
 
-wrangler@4.20.2:
-  version "4.20.2"
-  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-4.20.2.tgz#f90f2dd759a88de641b030c02f9d33655e0d488e"
-  integrity sha512-L7x1InqGKv9ZM0jMZ3HI8YlgRwJ4ReMT8Hr5sBe37FkBUID8GaJUMZzJP6NcJvVNeytFKekgeEGaQqZ4RgJ69A==
+wrangler@4.20.5:
+  version "4.20.5"
+  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-4.20.5.tgz#2d33ab0103984b14e23dcacdb82f14b49731d646"
+  integrity sha512-tmiyt2vBHszhdzJEDbCpFLU2RiV7/QzvGMV07Zaz4ptqiU2h/lTojyNJAugPpSFNiOuY+k0g3ENNTDQqoUkMFA==
   dependencies:
     "@cloudflare/kv-asset-handler" "0.4.0"
     "@cloudflare/unenv-preset" "2.3.3"
     blake3-wasm "2.1.5"
     esbuild "0.25.4"
-    miniflare "4.20250617.0"
+    miniflare "4.20250617.3"
     path-to-regexp "6.3.0"
     unenv "2.0.0-rc.17"
     workerd "1.20250617.0"
