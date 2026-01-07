@@ -5,7 +5,7 @@
 		"build": "vite build"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "4.20260103.0",
+		"@cloudflare/workers-types": "4.20260107.1",
 		"vite": "7.3.0",
 		"wrangler": "4.56.0"
 	}
