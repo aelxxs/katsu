@@ -37,10 +37,10 @@
   resolved "https://registry.yarnpkg.com/@cloudflare/workerd-windows-64/-/workerd-windows-64-1.20260410.1.tgz#76dd6f04b269ab388b2340707f872fa1f15acc76"
   integrity sha512-h8q/nbheDqpknY7AAOz19MuQkZAR1/bnoZnKipyeUPXt5No+y6HlTtva9Bohx5Fhc1MW2CX2MQVdb55qtkkqZQ==
 
-"@cloudflare/workers-types@4.20260418.1":
-  version "4.20260418.1"
-  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20260418.1.tgz#cad8529ce19ee90cadbafa8b41856d9bcac76975"
-  integrity sha512-bywXb2XmeSqrLCQYipcupLneqx015YhhNWz2v9b9iatpe8Cg551vP7ZuD5S2a6GfBka0dDnO70kIBiBvFglcrg==
+"@cloudflare/workers-types@4.20260422.1":
+  version "4.20260422.1"
+  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20260422.1.tgz#a8f2ba7625fcd0d750240322ef913b93198faccb"
+  integrity sha512-kI4baXLJloST4J/PxAfhz3azy4TPC7L2wcX6nusOzSNJJD/L5CSsivSJobgkYaMG5yspzRFQUQlCdPza0nTHbQ==
 
 "@cspotcode/source-map-support@0.8.1":
   version "0.8.1"
