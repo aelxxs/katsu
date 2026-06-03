@@ -6,7 +6,7 @@
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "4.20260603.1",
-		"vite": "8.0.14",
+		"vite": "8.0.16",
 		"wrangler": "4.96.0"
 	}
 }
